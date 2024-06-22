@@ -16,7 +16,7 @@ jobs:
       - name: Build image
         run: docker build -t image .
       - name: Run buildroot
-        run: docker run --rm --name builder -v $PWD/dist:/build -v $PWD/buildroot-v86/:/buildroot-v86 -ti image -- make clean all
+        run: docker run --rm --name builder -v $PWD/dist:/build -v $PWD/buildroot-v86/:/buildroot-v86 image -- make clean all
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
